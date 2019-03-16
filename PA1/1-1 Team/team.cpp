@@ -2,8 +2,7 @@
 #include <string.h>
 int n;
 int k;
-int *people;
-void alloc(int *team, bool &flag)
+void alloc(int *team, int *people, bool &flag)
 {
 	int cursor = team[n] + 1; // cursor move to the next number of last selection
 
@@ -25,12 +24,12 @@ void alloc(int *team, bool &flag)
 int main()
 {
 	scanf("%d", &n);
-	people = new int[n];
-	int *A = new int[n + 1];
-	int *B = new int[n + 1];
-	int *C = new int[n + 1];
+	int *people = new int[n];
+	int *A = new int[n+1];
+	int *B = new int[n+1];
+	int *C = new int[n+1];
 	for (int i = 0; i < n;i++)
-		people[i] = i + 1;
+		people[i] = i+1;
 	for (int i = 0; i < n;i++)
 		scanf("%d", &A[i]);
 	for (int i = 0; i < n;i++)
@@ -47,19 +46,19 @@ int main()
 	bool flag = false;
 	while (true)
 	{
-		alloc(A, flag);
+		alloc(A, people, flag);
 		if (flag == true)
 		{
 			printf("%c", 'A');
 			break;
 		}
-		alloc(B, flag);
+		alloc(B, people, flag);
 		if (flag == true)
 		{
 			printf("%c", 'B');
 			break;
 		}
-		alloc(C, flag);
+		alloc(C, people, flag);
 		if (flag == true)
 		{
 			printf("%c", 'C');
